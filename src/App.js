@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import Form from './components/Form'
+import { useState } from 'react'
 
 function App() {
+
+
+  const [Items ,setItems] = useState([])
+
+  const addItem = (Item) => {
+    setItems([...Items, Item])
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container p-4 col-md-8">
+       <h1 className="text-center my-3">React CRUD with localstorage</h1>
+      <Form className="form" />
+      <div className="col-md-4 mx-auto mt-3 form-group">
+                <button className="btn btn-dark w-100" id="submit">Create </button>
+            </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
